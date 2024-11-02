@@ -3,13 +3,29 @@
   become: yes
   gather_facts: yes
   tasks:
+ 
   - name: i want install apache2 (apt-get install apache2)
     apt: 
       name: apache2
-      state: present 
-    when: ansible_os_family=="Debian"  
-  - name: i want install apache2 (yum install httpd)
+      state: present
+    when: ansible_os_family=="Debian"
+
+  
+  
+  - name: i want install httpd (yum install httpd)
     dnf: 
       name: httpd
       state: present 
     when: ansible_os_family=="Redhat"
+
+  - name: i want start my httpd server (systemctl start httpd)
+    service: 
+      name: httpd
+      state: start
+    when: ansible_os_family=="Redhat"
+
+  - name: i want start apache2 (systemctl start apache2)
+    service: 
+      name: apache2
+      state: start
+    when: ansible_os_family=="Debian"
