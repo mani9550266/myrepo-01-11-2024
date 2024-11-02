@@ -6,7 +6,7 @@
  
   - name: i want install apache2 (apt-get install apache2)
     apt: 
-      name: apache2
+      name: "{{myubuntuwebpack}}"
       state: present
     when: ansible_os_family=="Debian"
 
@@ -14,18 +14,18 @@
   
   - name: i want install httpd (yum install httpd)
     dnf: 
-      name: httpd
+      name: "{{myredhatwebpack}}"
       state: present 
     when: ansible_os_family=="Redhat"
 
   - name: i want start my httpd server (systemctl start httpd)
     service: 
-      name: httpd
+      name: "{{myredhatwebpack}}"
       state: started
     when: ansible_os_family=="Redhat"
 
   - name: i want start apache2 (systemctl start apache2)
     service: 
-      name: apache2
+      name: "{{myubuntuwebpack}}"
       state: started
     when: ansible_os_family=="Debian"
