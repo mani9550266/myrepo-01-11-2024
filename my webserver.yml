@@ -21,11 +21,11 @@
   - name: i want start my httpd server (systemctl start httpd)
     service: 
       name: httpd
-      state: start
+      state: started
     when: ansible_os_family=="Redhat"
 
   - name: i want start apache2 (systemctl start apache2)
     service: 
       name: apache2
-      state: start
+      state: started
     when: ansible_os_family=="Debian"
