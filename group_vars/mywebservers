@@ -2,3 +2,7 @@
 variable: value
 myubuntuwebpack: apache2
 myredhatwebpack: httpd
+
+
+myjavaonubuntu: openjdk-17-jdk
+myjavaonredhat:  java-1.8.0-amazon-corretto-devel
