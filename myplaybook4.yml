@@ -1,0 +1,17 @@
+---
+-  hosts: all
+   become: yes
+   tasks: 
+   -  name: i want instll apahe2 in debian node
+      apt:
+        name: apache2
+        state: present
+      when: ansible_os_family==""Debian"
+      notify: restart web server
+
+      handlers:
+      -  name: restart web server
+         service:
+            name: apache2
+            state: restarted
+         when:  ansible_os_family=="Debian"
