@@ -1,18 +1,20 @@
 ---
--  hosts: all
-   become: yes
-   tasks: 
-   -  name: i want instll apahe2 in debian node
+- name: Install and Configure Apache2
+  hosts: all
+  become: yes
+
+  tasks:
+    - name: Install Apache2 on Debian systems
       apt:
         name: apache2
         state: present
-      when: ansible_os_family=="Debian"
-     
-    notify: restart web server
+      when: ansible_os_family == "Debian"   
 
-    handlers:
-    -  name: restart web server
-       service:
-         name: apache2
-         state: restarted
-       when: ansible_os_family=="Debian"
+      notify: restart_apache2
+
+  handlers:
+    - name: restart_apache2
+      service:
+        name: apache2
+        state: restarted
+      when: ansible_os_family == "Debian"
