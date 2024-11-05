@@ -1,6 +1,7 @@
 --- 
 - name: update packages
-  update_cache: yes
+  apt:
+    update_cache: yes
 
 
 - name: iwant install java17 on debian12
