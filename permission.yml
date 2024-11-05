@@ -1,0 +1,6 @@
+---
+- name: change ownership of tomcat directery
+  command: "sudo chown -R tomcat: /opt/tomcat/apache-tomcat-10.1.31"
+
+-  name: giving excuteble permission  
+   command: "sudo sh -c 'chmod +x /opt/tomcat/apache-tomcat-10.1.31/bin/*.sh'"

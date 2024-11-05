@@ -1,0 +1,5 @@
+---
+- name: copy service into nodes
+  copy:
+    src: templates/mytomcatservice
+    dest:  /etc/systemd/system/tomcat.service

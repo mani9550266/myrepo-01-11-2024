@@ -1,0 +1,10 @@
+--- 
+- name: update packages
+  update_cache: yes
+
+
+- name: iwant install java17 on debian12
+  apt:
+    name: openjdk-17-jdk
+    state: present
+    
